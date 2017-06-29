@@ -75,6 +75,11 @@ header {
     margin-bottom: 30px;
     position: relative;
 }
+.logo-image{
+    position: relative;
+    width: 100px;
+    border-radius: 50%;
+}
 
 nav {
     width: 100%;
@@ -89,28 +94,19 @@ nav {
 }
 
 .logo span {
-    color: white;
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 50%;
-    margin: 5px 0;
     text-align: center;
-    text-shadow: 2px 2px 1px rgba(0, 0, 0, .4);
+    color: #111;
+    text-transform: uppercase;
+    line-height: 40px;
+    font-weight: 600;
 }
 
-.logo span:nth-child(odd) {
-    background: #EF5A42;
+.logo span:hover{
+    color: cadetblue;
 }
-
-.logo span:nth-child(even) {
-    background: #F8B763;
-}
-
 
 /* меню */
-
 #menu {
     float: right;
 }
@@ -130,7 +126,7 @@ nav {
 }
 
 #menu a:hover {
-    color: #EF5A42;
+    color: darkcyan;
 }
 
 #menu li:last-child {
@@ -165,7 +161,7 @@ nav {
     border: none;
     position: absolute;
     right: 10px;
-    color: #EF5A42;
+    color: darkcyan;
     cursor: pointer;
     font-size: 18px;
 }
@@ -237,20 +233,21 @@ nav {
     float: left;
 }
 
-
 /* блок для статьи */
 
 .post {
     display: flex;
-    margin-bottom: 35px;
-    margin-top: 35px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     border-top: 1px solid #9E9C9C;
     border-bottom: 1px solid #9E9C9C;
 }
+
 .post:hover {
-    border-bottom: 3px solid #3C3D41;
+    background-color: #EBEBE3;
 }
-.post-content{
+
+.post-content {
     margin-top: 35px;
     width: 500px;
     display: inline-block;
@@ -258,12 +255,12 @@ nav {
 }
 
 .post-content p {
-    line-height: 1.5;
     padding-bottom: 1em;
 }
 
 .post-image {
     margin-bottom: 30px;
+    margin-top: 30px;
     position: relative;
     width: 200px;
 }
@@ -275,6 +272,7 @@ nav {
     color: #373737;
     float: right;
     font-size: 2em;
+    padding-bottom: 1em;
 }
 
 .image-size {
@@ -287,7 +285,7 @@ nav {
 }
 
 .category a {
-    color: #F8B763;
+    color: darkcyan;
     text-transform: uppercase;
 }
 
@@ -403,6 +401,11 @@ aside {
     color: #626262;
     margin-right: 6px;
     font-style: normal;
+}
+
+.widget-category-list li a:hover {
+    color: cadetblue;
+    font-style: oblique;
 }
 
 .widget-category-list li a:before {
@@ -551,6 +554,9 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .logo {
+        display: none;
+    }
     /* выравниванием логотип по центру */
     nav {
         text-align: center;
