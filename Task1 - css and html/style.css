@@ -72,7 +72,7 @@ header {
     background: white;
     box-shadow: 3px 3px 1px rgba(0, 0, 0, .05);
     padding: 15px 0;
-     z-index:100000;
+    z-index: 100000;
 }
 
 .header-content {
@@ -121,6 +121,7 @@ nav {
 #menu {
     float: right;
     padding: 1em;
+    text-align: center;
 }
 
 #menu li {
@@ -229,21 +230,28 @@ nav {
 
 #menu.active {
     max-height: 123px;
+    padding: 0.7em;
+    text-align: center;
+    line-height: 2em;
+}
+
+#menu li.active {    
+    padding: 1em;
 }
 
 
 /*------------------------------------------------------основной контент---------------------------------------*/
+
 main {
-  height: calc(100vh - 90px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  margin-top: 10px;
-}
-.under-header{    
-    margin-top: 80px;
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 10px;
 }
 
+
 /* правый контейнер */
+
 .posts-list {
     margin-bottom: 30px;
     margin-left: 5px;
@@ -289,6 +297,7 @@ main {
     margin-top: 10px;
 }
 
+
 /*cart:before {
     content: "\f218";
     font-family: 'FontAwesome';
@@ -299,12 +308,13 @@ main {
     padding-bottom: 1em;
     text-align: right;
 }*/
-.cart{
+
+.cart {
     font-size: 1.5em;
     color: #373737;
 }
 
-.post-info a:hover{
+.post-info a:hover {
     color: darkcyan;
 }
 
@@ -482,12 +492,13 @@ footer {
 /*------------------------------------------------------медиа-запросы------------------------------------------*/
 
 @media (max-width: 1028px) {
-    .container{
+    .container {
         max-width: 1000px;
     }
 }
+
 @media (max-width: 768px) {
-    .container{
+    .container {
         flex-direction: column;
     }
     /* показываем кнопку для переключения верхней навигации */
@@ -508,13 +519,11 @@ footer {
         left: 0;
         padding: 0;
         z-index: 3;
-        align-self: flex-end;
     }
     /* делаем элементы списка блочными, чтобы они располагались друг под другом */
     #menu li {
         display: block;
         padding-left: 15px;
-        border-bottom: 1px solid #EBEBE3;
         margin-right: 0;
     }
     /* отменяем обтекание левой и правой колонок, устанавливаем им ширину 100%*/
@@ -532,12 +541,12 @@ footer {
         width: 100%;
         height: 150px;
     }
-    .post-content{
+    .post-content {
         display: flex;
         justify-content: space-around;
         font-size: 0.8em;
     }
-    .under-header{
+    .under-header {
         margin-top: 150px;
     }
 }
@@ -548,8 +557,7 @@ footer {
     }
     /* позиционируем меню на увеличившуюся высоту шапки */
     #menu {
-        top: 118px;
-        align-self: flex-end;
+        top: 65px;
     }
     /* позиционируем форму поиска по левому краю */
     #searchform {
@@ -574,10 +582,10 @@ footer {
         text-align: center;
         margin-bottom: 0;
     }
-    .under-header{
+    .under-header {
         margin-top: 30px;
     }
-    .image-size{
+    .image-size {
         max-width: 100px;
         max-height: 70px;
     }
