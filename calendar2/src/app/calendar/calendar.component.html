@@ -1,0 +1,88 @@
+<p-dialog [header]="dialogHeader" [(visible)]="displayModal" modal="modal" [responsive]="true" [closable]="true" [closeOnEscape]="true">
+  {{dialogMessage}}
+</p-dialog>
+
+<div class="row">
+  <div class="btn-group col-md-4">
+    <div class="btn btn-primary" mwlCalendarPreviousView view="month" [(viewDate)]="viewDate">
+      Previous
+    </div>
+    <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+      Today
+    </div>
+    <div class="btn btn-primary" mwlCalendarNextView view="month" [(viewDate)]="viewDate">
+      Next
+    </div>
+  </div>
+  <h3 class="col-md-4">{{ viewDate |  date:'month year'}}</h3>
+  <div class="col-md-4">
+    <input type="checkbox" [(ngModel)]="checkTime" id="chekTime" />
+    <label for="chekTime">Notify if time is already occupied</label>
+  </div>
+</div>
+
+<div class="calendar-view">
+  <mwl-calendar-month-view [viewDate]="viewDate" [events]="events" [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen"
+    (dayClicked)="dayClicked($event.day)" (eventClicked)="handleEvent('Clicked', $event.event)">
+  </mwl-calendar-month-view>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Edit events</h3>
+  </div>
+  <div class="panel-body">
+    <h3>
+      <button class="btn btn-primary pull-right" (click)="addEvent()">
+        Add new
+      </button>
+      <button class="btn btn-primary" (click)="saveInLocalStorage()">
+        Save
+      </button>
+      <div class="clearfix"></div>
+    </h3>
+
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Primary color</th>
+          <th>Starts at</th>
+          <th>Ends at</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let event of events; let index = index">
+          <td>
+            <input type="text" class="form-control" [(ngModel)]="event.title">
+          </td>
+          <td>
+            <select [(ngModel)]="event.type" class="form-control">
+              <option value="" class="">Select</option>
+              <option value="0">Meeting</option>
+              <option value="1">Reminder</option>
+              <option value="2">Appointment</option>
+            </select>
+          </td>
+          <td>
+            <input type="color" [(ngModel)]="event.color.primary" (change)="refresh.next()" class="form-control">
+          </td>
+          <td>
+            <input [(ngModel)]="event.start" ng2-datetime-picker date-only="true" class="form-control"/>
+          </td>
+          <td>
+            <input [(ngModel)]="event.end" ng2-datetime-picker date-only="true" class="form-control"/>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="events.splice(index, 1); refresh.next()">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
